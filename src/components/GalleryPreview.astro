@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+
+const { Images } = Astro.props;
+
+const images: Array<{ default: { src: string } }> = Object.values(Images);
+
+//Dodaj alty do zdjęć
+---
+
+<style>
+  div {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .first {
+    grid-row: span 3;
+    grid-column: span 3;
+    width: 100%;
+    height: 100%;
+  }
+  .sec {
+    grid-row: span 3;
+    grid-column: span 3;
+    height: auto;
+
+    @media (min-width: 1280px) {
+      grid-row: span 2;
+      grid-column: span 2;
+    }
+  }
+
+  .third {
+    grid-column: span 2;
+    width: 100%;
+    height: auto%;
+
+    @media (min-width: 1280px) {
+      grid-column: span 1;
+    }
+  }
+
+  .forth {
+    width: 100%;
+    height: auto%;
+  }
+</style>
+
+<div>
+  <Image class="first" src={images[0].default} alt="" />
+  <Image class="sec" src={images[1].default} alt="" />
+  <Image class="third" src={images[2].default} alt="" />
+  <Image class="forth" src={images[3].default} alt="" />
+</div>

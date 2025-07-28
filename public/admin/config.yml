@@ -22,20 +22,42 @@ logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 site_url: http://localhost:4321
 
 media_folder: src/assets/img
-public_folder: /assets/img
+public_folder: src/assets/img
 registerMediaLibrary:
   name: local # Use local storage for simplicity; change to 'uploadcare' if needed
 
+i18n:
+  structure: multiple_folders
+  locales: [en, de, pl]
+  default_locale: en
+
 collections:
-  - name: blog
-    label: Blog
-    folder: src/content/blog
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Title2", name: "title2", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "OG Image", name: "ogImage", widget: "image" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: translations
+    label: Tłumaczenia
+    i18n:
+      structure: single_file
+    folder: src/content/translations
+    files:
+      - name: navigation
+        label: Nawigacja
+        file: navigation.md
+        fields:
+          - {
+              label: "Strona Główna",
+              name: "home",
+              widget: "string",
+              i18n: true,
+            }
+          - {
+              label: "Projekty",
+              name: "projects",
+              widget: "string",
+              i18n: true,
+            }
+          - { label: "Kontakt", name: "contact", widget: "string", i18n: true }
+          - {
+              label: "Polityka Prywatności",
+              name: "rules",
+              widget: "string",
+              i18n: true,
+            }

@@ -1,0 +1,73 @@
+---
+import MainLayout from "../layouts/main_layout.astro";
+
+import Image1 from "../images/intro/intro_1.jpg";
+import Image2 from "../images/intro/intro_2.png";
+import Image3 from "../images/intro/intro_3.png";
+import Image4 from "../images/intro/intro_4.jpg";
+import Image5 from "../images/intro/intro_5.png";
+import Image6 from "../images/intro/intro_6.jpg";
+import Image7 from "../images/intro/intro_8.jpg";
+
+import { Image } from "astro:assets";
+---
+
+<div id="intro" class="banner z-100">
+  <div class="slide">
+    <Image alt="" src={Image1} />
+    <Image alt="" src={Image2} />
+    <Image alt="" src={Image3} />
+  </div>
+  <div class="slide">
+    <Image alt="" src={Image4} />
+    <Image alt="" src={Image5} />
+    <Image alt="" src={Image6} />
+  </div>
+  <div class="slide items-center">
+    <Image
+      class="logo col-span-3 object-contain h-[90vh]"
+      alt=""
+      src={Image7}
+    />
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+  const intro = document.getElementById("intro");
+  const body = document.getElementById("body");
+  let currentSlide = 0;
+  let interval = 2000;
+  let slideInterval;
+
+  function changeSlide() {
+    if (currentSlide < slides.length - 1) {
+      slides[currentSlide].classList.remove("active");
+      currentSlide++;
+      slides[currentSlide].classList.add("active");
+      console.log(currentSlide);
+    } else {
+      console.log(currentSlide);
+      slides[currentSlide].classList.remove("active");
+      intro?.classList.remove("background");
+      intro.style.display = "none";
+      body?.classList.remove("stop_scroll");
+      sessionStorage.setItem("introShown", "true");
+      currentSlide = 0;
+      clearInterval(slideInterval);
+    }
+  }
+
+  function playIntro() {
+    body.classList.add("stop_scroll");
+    intro?.classList.add("background");
+    intro.style.display = "inline-block";
+    slides[currentSlide].classList.add("active");
+    slideInterval = setInterval(changeSlide, interval);
+  }
+  window.playIntro = playIntro;
+
+  if (!sessionStorage.getItem("introShown")) {
+    PlayIntro();
+  }
+</script>

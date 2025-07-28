@@ -1,0 +1,54 @@
+---
+import { getEntry } from "astro:content";
+import "../components/Navbar.astro";
+import Navbar from "../components/Navbar.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+
+import "../styles/global.css";
+const { lang } = Astro.params;
+const { title } = Astro.props;
+
+
+
+const links = {
+  home: {
+    href: "",
+    text: n.main,
+  },
+  projects: {
+    href: "projects",
+    text: n.projects,
+  },
+  contact: {
+    href: "#contact",
+    text: n.contact,
+  },
+};
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+  </head>
+
+  <body id="body" class="w-full">
+    <Navbar links={links} />
+    <slot />
+    <Contact
+      title1={c.title1}
+      title2={c.title2}
+      description={c.description}
+      name={c.form.name}
+      email={c.form.email}
+      phone={c.form.phone}
+      button={c.form.button}
+    />
+    <Footer />
+  </body>
+</html>

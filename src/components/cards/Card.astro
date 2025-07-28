@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  text: string;
+}
+
+const { title, text } = Astro.props;
+---
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-accent);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    gap: 2vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 30rem;
+
+    @media (min-width: 1280px) {
+      justify-content: start;
+    }
+  }
+
+  .svg {
+    padding: 0;
+    width: 2rem;
+  }
+</style>
+
+<div>
+  <div class="svg">
+    <slot />
+  </div>
+  <h3>{title}</h3>
+  <p>{text}</p>
+</div>

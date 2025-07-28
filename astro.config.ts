@@ -4,14 +4,19 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 
 const config: AstroUserConfig = defineConfig({
-	site: "https://example.com",
-	output: "hybrid",
+	site: "http://localhost:4321",
+	output: "server",
 	adapter: vercel(),
 	integrations: [
 		tailwind({
 			applyBaseStyles: false,
 		}),
 	],
+
+	i18n: {
+    locales: ["en", "de", "pl"],
+    defaultLocale: "en",
+  }
 });
 
 // https://astro.build/config

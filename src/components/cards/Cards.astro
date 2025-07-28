@@ -1,0 +1,40 @@
+---
+import Card from "./Card.astro";
+
+interface Card {
+  title: string;
+  text: string;
+  svg: astroHTML.JSX.SVGAttributes;
+}
+
+interface Props {
+  cards: Record<string, Card>;
+}
+
+const { cards } = Astro.props;
+const cards_array = Object.values(cards);
+---
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+    margin-top: -5vh;
+    align-items: center;
+
+    @media (min-width: 1280px) {
+      flex-direction: row;
+    }
+  }
+</style>
+
+<div>
+  {
+    cards_array.map((card) => (
+      <Card title={card.title} text={card.text}>
+        <card.svg />
+      </Card>
+    ))
+  }
+</div>

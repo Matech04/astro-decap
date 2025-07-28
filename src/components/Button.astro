@@ -1,0 +1,42 @@
+---
+const { link, text } = Astro.props;
+---
+
+<style>
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-block: 0.75rem;
+    padding-inline: 1.5rem;
+    border-radius: 0.5rem;
+    width: 50%;
+    background-color: var(--color-accent);
+
+    @media (min-width: 640px) {
+      font-size: 1.875rem;
+      width: 60%;
+    }
+
+    @media (min-width: 1024px) {
+      padding-block: 1rem;
+      width: 40%;
+    }
+  }
+
+  .svg {
+    padding: 0;
+    width: 2rem;
+  }
+</style>
+
+<div>
+  <a href={link}>{text}</a>
+  <div class="svg">
+    <slot />
+  </div>
+</div>

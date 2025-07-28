@@ -1,0 +1,117 @@
+---
+const { lang } = Astro.params;
+const { links } = Astro.props;
+---
+
+<nav id="nav" class="closed">
+  <div class="nav_elements">
+    <svg
+      class="logo"
+      viewBox="0 0 77 96"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_30_3682)">
+        <path
+          d="M72.3192 1.29785L74.2347 31.7556H72.3192C69.7653 22.6395 66.1168 16.0755 61.3738 12.0693C56.6308 8.06304 50.9471 6.05705 44.3057 6.05705C38.7418 6.05705 33.7137 7.56873 29.2159 10.5806C24.7237 13.5982 21.1892 18.4091 18.6125 25.0191C16.0357 31.6234 14.7474 39.8427 14.7474 49.66C14.7474 57.7645 15.9616 64.7883 18.3958 70.7373C20.8301 76.6805 24.4842 81.2443 29.3698 84.4114C34.2553 87.5842 39.8307 89.1706 46.0958 89.1706C51.54 89.1706 56.34 87.929 60.5016 85.4402C64.6631 82.9514 69.2408 78.0083 74.229 70.6108L76.1444 71.9328C71.9373 79.9051 67.0346 85.7391 61.4251 89.4407C55.8212 93.1423 49.1628 94.9931 41.4497 94.9931C27.5569 94.9931 16.7996 89.4867 9.17203 78.4739C3.49409 70.2717 0.649414 60.6269 0.649414 49.5278C0.649414 40.59 2.52496 32.3706 6.27605 24.8869C10.0271 17.3975 15.192 11.5979 21.765 7.47676C28.3436 3.36132 35.5266 1.29785 43.3195 1.29785C49.3794 1.29785 55.3538 2.88425 61.2541 6.05705C62.9871 7.02843 64.2241 7.51125 64.9652 7.51125C66.0769 7.51125 67.046 7.09166 67.8726 6.25822C68.9444 5.06842 69.7083 3.4188 70.1586 1.3036H72.3249L72.3192 1.29785Z"
+          fill="#B2B2B2"
+          stroke="white"
+          stroke-width="2.29"
+          stroke-miterlimit="10"></path>
+        <path
+          d="M58.1131 20.9036V41.0554H56.534C56.0209 37.1871 55.1088 34.1121 53.7862 31.8187C52.4637 29.5253 50.5824 27.709 48.1425 26.364C45.6969 25.019 43.1715 24.3465 40.5548 24.3465C37.6018 24.3465 35.1562 25.2547 33.2237 27.0767C31.2911 28.8988 30.3277 30.968 30.3277 33.2844C30.3277 35.0605 30.9377 36.6813 32.1576 38.1413C33.9191 40.291 38.1092 43.1534 44.7278 46.7343C50.1264 49.6542 53.8091 51.8958 55.7872 53.4592C57.7597 55.0226 59.2818 56.8619 60.3478 58.9829C61.4139 61.1038 61.944 63.3225 61.944 65.6446C61.944 70.0589 60.2452 73.8582 56.8533 77.054C53.4613 80.2498 49.0888 81.8477 43.7472 81.8477C42.0712 81.8477 40.4921 81.7213 39.0156 81.4626C38.1377 81.3189 36.3078 80.7959 33.5372 79.8935C30.7666 78.9911 29.0108 78.5427 28.2754 78.5427C27.54 78.5427 27.0041 78.7554 26.5937 79.1865C26.1832 79.6176 25.8754 80.5027 25.6759 81.8477H24.0968V61.8683H25.6759C26.417 66.0527 27.4089 69.1795 28.6574 71.2545C29.9058 73.3294 31.8156 75.0595 34.3866 76.4333C36.9576 77.807 39.7795 78.4967 42.8465 78.4967C46.3981 78.4967 49.2028 77.5541 51.2608 75.6631C53.3188 73.772 54.3506 71.5361 54.3506 68.9611C54.3506 67.5299 53.963 66.0814 53.1763 64.6215C52.3896 63.1615 51.181 61.7993 49.5335 60.5405C48.4275 59.6784 45.4005 57.8563 40.4579 55.0629C35.5154 52.2694 31.998 50.045 29.9115 48.3839C27.825 46.7228 26.2402 44.8892 25.1571 42.8832C24.0797 40.8772 23.5381 38.6701 23.5381 36.2675C23.5381 32.0831 25.1286 28.4849 28.3096 25.4616C31.4906 22.4382 35.5382 20.9266 40.4579 20.9266C43.5249 20.9266 46.78 21.6853 50.2176 23.2027C51.8081 23.9212 52.9311 24.2775 53.5867 24.2775C54.3278 24.2775 54.9264 24.0534 55.3996 23.6108C55.867 23.1682 56.2433 22.2715 56.5283 20.9266H58.1074L58.1131 20.9036Z"
+          fill="#B2B2B2"
+          stroke="white"
+          stroke-width="1.53"
+          stroke-miterlimit="10"></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_30_3682">
+          <rect
+            width="77"
+            height="95"
+            fill="white"
+            transform="translate(0 0.642578)"></rect>
+        </clipPath>
+      </defs>
+    </svg>
+    <div class="links">
+      {
+        Object.entries(links).map(([key, { href, text }]) => (
+          <a href={href.startsWith("#") ? href : `/${lang}/${href}`}>{text}</a>
+        ))
+      }
+    </div>
+    <div class="flex flex-col xl:flex-row gap-6">
+      <div class="languages">
+        <a id="pl" href="/pl">PL</a>
+        <a id="en" href="/en">EN</a>
+        <a id="de" href="/de">DE</a>
+      </div>
+    </div>
+  </div>
+  <button id="hamburger-btn" class="button">
+    <svg
+      class="w-6 h-6 text-white"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        id="top-line"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16"></path>
+      <path
+        id="middle-line"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 12h16"></path>
+      <path
+        id="bottom-line"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 18h16"></path>
+    </svg>
+  </button>
+</nav>
+
+<script>
+  const hamburger = document.getElementById("hamburger-btn");
+  const nav = document.getElementById("nav");
+
+  const introBtn = document.getElementById("introPlayer");
+
+  introBtn?.addEventListener("click", () => {
+    console.log("click");
+    window.playIntro();
+  });
+
+  hamburger.addEventListener("click", () => {
+    const topLine = document.getElementById("top-line");
+    const middleLine = document.getElementById("middle-line");
+    const bottomLine = document.getElementById("bottom-line");
+
+    const toggleNav = () => {
+      nav?.classList.toggle("closed");
+    };
+
+    toggleNav();
+
+    if (hamburger.classList.contains("active")) {
+      topLine.setAttribute("d", "M4 6h16");
+      middleLine.setAttribute("d", "M4 12h16");
+      bottomLine.setAttribute("d", "M4 18h16");
+      hamburger.classList.remove("active");
+    } else {
+      topLine.setAttribute("d", "M6 6L18 18");
+      middleLine.setAttribute("d", "M12 12h0");
+      bottomLine.setAttribute("d", "M6 18L18 6");
+      hamburger.classList.add("active");
+    }
+  });
+</script>
