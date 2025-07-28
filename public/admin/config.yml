@@ -36,28 +36,132 @@ collections:
     label: Tłumaczenia
     i18n:
       structure: single_file
-    folder: src/content/translations
+      locales: [en, de, pl]
     files:
+      - name: home
+        label: Strona Główna
+        file: src/content/translations/home.md
+        format: frontmatter
+        i18n: true
+        fields:
+          - label: Tytuł 1
+            name: title1
+            widget: string
+            i18n: true
+          - label: Tytuł 2
+            name: title2
+            widget: string
+            i18n: true
+          - label: Opis 1
+            name: description1
+            widget: text
+            i18n: true
+          - label: Opis 2
+            name: description2
+            widget: text
+            i18n: true
+          - label: Przycisk
+            name: button
+            widget: string
+            i18n: true
+          - label: Karty
+            name: cards
+            widget: list
+            i18n: true
+            fields:
+              - label: Tytuł Karty
+                name: title
+                widget: string
+                i18n: true
+              - label: Opis Karty
+                name: description
+                widget: text
+                i18n: true
+          - label: O Nas
+            name: about
+            widget: object
+            i18n: true
+            fields:
+              - label: Tytuł O Nas
+                name: title
+                widget: string
+                i18n: true
+              - label: Opis O Nas
+                name: description
+                widget: text
+                i18n: true
+          - label: Projekty
+            name: projects
+            widget: object
+            i18n: true
+            fields:
+              - label: Tytuł Projektów
+                name: title
+                widget: string
+                i18n: true
+              - label: Przycisk Projektów
+                name: button
+                widget: string
+                i18n: true
       - name: navigation
         label: Nawigacja
-        file: navigation.md
+        file: src/content/translations/navigation.md
+        format: frontmatter
+        i18n: true
         fields:
-          - {
-              label: "Strona Główna",
-              name: "home",
-              widget: "string",
-              i18n: true,
-            }
-          - {
-              label: "Projekty",
-              name: "projects",
-              widget: "string",
-              i18n: true,
-            }
-          - { label: "Kontakt", name: "contact", widget: "string", i18n: true }
-          - {
-              label: "Polityka Prywatności",
-              name: "rules",
-              widget: "string",
-              i18n: true,
-            }
+          - label: Strona Główna
+            name: home
+            widget: string
+            i18n: true
+          - label: Projekty
+            name: projects
+            widget: string
+            i18n: true
+          - label: Kontakt
+            name: contact
+            widget: string
+            i18n: true
+          - label: Polityka Prywatności
+            name: rules
+            widget: string
+            i18n: true
+      - name: contact
+        label: Tłumaczenia Strony
+        file: src/content/translations/contact.md
+        format: frontmatter
+        i18n: true
+        fields:
+          - label: Strona Główna
+          - label: Tytuł 1
+            name: title1
+            widget: string
+            i18n: true
+          - label: Tytuł 2
+            name: title2
+            widget: string
+            i18n: true
+          - label: Opis
+            name: description
+            widget: text
+            i18n: true
+          - label: Formularz
+            name: form
+            widget: object
+            i18n: true
+            fields:
+              - label: Imię
+                name: name
+                widget: string
+                i18n: true
+              - label: Adres e-mail
+                name: email
+                widget: string
+                i18n: true
+              - label: Numer telefonu
+                name: phone
+                widget: string
+                i18n: true
+              - label: Przycisk
+                name: button
+                widget: string
+                i18n: true
