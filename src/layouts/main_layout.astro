@@ -1,33 +1,40 @@
 ---
-import { getEntry } from "astro:content";
 import "../components/Navbar.astro";
 import Navbar from "../components/Navbar.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
+import "../assets/styles/global.css";
 
-import "../styles/global.css";
-const { lang } = Astro.params;
+import * as Nav from "../content/translations/navigation.md";
+import * as Con from "../content/translations/contact.md";
 const { title } = Astro.props;
 
-
+const t = Nav.frontmatter.en;
+const c = Con.frontmatter.en;
 
 const links = {
   home: {
     href: "",
-    text: n.main,
+    text: t.main,
   },
   projects: {
     href: "projects",
-    text: n.projects,
+    text: t.projects,
   },
   contact: {
     href: "#contact",
-    text: n.contact,
+    text: t.contact,
   },
 };
 ---
 
-<html lang={lang}>
+<style>
+  body: {
+    width: 100%;
+  }
+</style>
+
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -37,7 +44,7 @@ const links = {
     <title>{title}</title>
   </head>
 
-  <body id="body" class="w-full">
+  <body id="body">
     <Navbar links={links} />
     <slot />
     <Contact

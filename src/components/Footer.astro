@@ -1,18 +1,10 @@
 ---
-import { getEntry } from "astro:content";
-import { loadTranslations, t } from "../utils/i18n";
-
 const { lang } = Astro.params;
-const c = await getEntry("footer", lang);
-
-import Logo from "/src/svg/logo.svg";
 ---
 
 <footer class="section flex flex-col gap-4 pb-20 justify-center items-center">
-  <div class="w-20">
-    <Logo />
-  </div>
-  <p class="text-xl font-bold mt-10 mb-5">{c.data.contact}:</p>
+  <div class="w-20"></div>
+  <p class="text-xl font-bold mt-10 mb-5">{"placeholder"}:</p>
   <p>ul. Gorzowska 19/3, 66-435 Krzeszyce</p>
   <p>office@custom-steel.eu</p>
   <p>+48 535 044 105</p>

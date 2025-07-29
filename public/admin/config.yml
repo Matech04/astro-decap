@@ -67,6 +67,10 @@ collections:
           - label: Karty
             name: cards
             widget: list
+            min: 3
+            max: 3
+            minimize_collapsed: true
+            allow_add: false
             i18n: true
             fields:
               - label: Ikona

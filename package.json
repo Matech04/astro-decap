@@ -2,16 +2,14 @@
 	"name": "decap-starter",
 	"type": "module",
 	"version": "0.0.1",
-
-  "engines": {
-    "node": "18.x"
-  },
-  "functions": {
-    "src/pages/api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-
+	"engines": {
+		"node": "18.x"
+	},
+	"functions": {
+		"src/pages/api/**/*.js": {
+			"runtime": "nodejs18.x"
+		}
+	},
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
@@ -24,11 +22,11 @@
 		"sync": "astro sync"
 	},
 	"dependencies": {
-		"@astrojs/node": "^9.3.0",
+		"@astrojs/node": "^9.3.1",
 		"@astrojs/vercel": "^7.8.2",
 		"@supabase/ssr": "^0.6.1",
-		"@supabase/supabase-js": "^2.52.1",
-		"astro": "^4.16.18",
+		"@supabase/supabase-js": "^2.53.0",
+		"astro": "^5.12.5",
 		"decap-cms-app": "^3.8.2"
 	},
 	"devDependencies": {

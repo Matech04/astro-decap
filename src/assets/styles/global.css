@@ -1,3 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root{
+  --color-dark: #060C0F;
+  --color-light: #FFFFFF;
+  --color-accent: #DD635A;
+}
+
+  
+h1,h2,h3,h4,h5,h6,p,a {
+  color: var(--color-light);
+}
+
+body{
+  background-color:#060C0F;
+}
+
+.bg-image {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, #060C0F 100%), /* Biały gradient od przezroczystego do pełnego krycia */
+  url(/Images/background_mobile.png); /* Twoje zdjęcie */
+  background-size: cover; /* Opcjonalne, ale często przydatne */
+  background-repeat: no-repeat; /* Opcjonalne */
+}
+
+@media only screen and (min-width: 1024px) {
+  .bg-image {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, #060C0F 100%), /* Biały gradient od przezroczystego do pełnego krycia */
+  url(/Images/background_tablet.png); /* Twoje zdjęcie */
+  background-size: cover; /* Opcjonalne, ale często przydatne */
+  background-repeat: no-repeat; /* Opcjonalne */
+  }   
+}
+
+@media only screen and (min-width: 1280px) {
+  .bg-image {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, #060C0F 100%), /* Biały gradient od przezroczystego do pełnego krycia */
+  url(/Images/background.png); /* Twoje zdjęcie */
+  background-size: cover; /* Opcjonalne, ale często przydatne */
+  background-repeat: no-repeat; /* Opcjonalne */
+  }   
+}
+
+
+
+
+
