@@ -69,6 +69,11 @@ collections:
             widget: list
             i18n: true
             fields:
+              - label: Ikona
+                name: icon
+                widget: image
+                choose_url: false
+                allow_multiple: false
               - label: Tytuł Karty
                 name: title
                 widget: string
