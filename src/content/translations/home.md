@@ -8,21 +8,19 @@ en:
   description2: we take care of every stage of the process.
   button: Contact us!
   cards:
-    card1:
-      title: Precision and quality craftsmanship
+    - title: Precision and quality craftsmanship
       description: >-
         We use modern technologies and proven methods to deliver durable, solid,
         and aesthetically pleasing products.
-    card2:
-      title: Individual approach to projects
+    - title: Individual approach to projects
       description: >-
         We don’t offer off-the-shelf solutions. We adapt to your needs, space,
         and budget, delivering tailor-made projects.
-    card3:
-      title: Trusted partner in realization
+    - title: Trusted partner in realization
       description: >-
         From the first contact to final installation – you can count on our
         support, punctuality, and full commitment.
+
   about:
     title: What do we do?
     description: >-

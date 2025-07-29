@@ -69,14 +69,18 @@ collections:
             widget: list
             i18n: true
             fields:
-              - label: Tytuł Karty
-                name: title
-                widget: string
-                i18n: true
-              - label: Opis Karty
-                name: description
-                widget: text
-                i18n: true
+              - label: Karta
+                name: card
+                widget: object
+                fields:
+                  - label: Tytuł Karty
+                    name: title
+                    widget: string
+                    i18n: true
+                  - label: Opis Karty
+                    name: description
+                    widget: text
+                    i18n: true
           - label: O Nas
             name: about
             widget: object
@@ -126,12 +130,11 @@ collections:
             widget: string
             i18n: true
       - name: contact
-        label: Tłumaczenia Strony
+        label: Formularz Kontaktowy
         file: src/content/translations/contact.md
         format: frontmatter
         i18n: true
         fields:
-          - label: Strona Główna
           - label: Tytuł 1
             name: title1
             widget: string
