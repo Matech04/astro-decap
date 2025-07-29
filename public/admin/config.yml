@@ -32,6 +32,33 @@ i18n:
   default_locale: en
 
 collections:
+  - name: gallery
+    label: Galeria
+    structure: single_file
+    locales: [en, de, pl]
+    files:
+      - name: preview
+        label: Wystawa
+        file: src/content/gallery_preview.md
+        format: frontmatter
+        i18n: true
+        fields:
+          - label: Zdjęcia
+            name: photos
+            widget: list
+            min: 4
+            max: 4
+            minimize_collapsed: true
+            allow_add: false
+            fields:
+              - name: photo
+                label: Zdjęcie
+                widget: image
+                choose_url: false
+                allow_multiple: false
+              - name: alt
+                label: Opis zdjęcia
+                widget: string
   - name: translations
     label: Tłumaczenia
     i18n:
