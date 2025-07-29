@@ -69,18 +69,14 @@ collections:
             widget: list
             i18n: true
             fields:
-              - label: Karta
-                name: card
-                widget: object
-                fields:
-                  - label: Tytuł Karty
-                    name: title
-                    widget: string
-                    i18n: true
-                  - label: Opis Karty
-                    name: description
-                    widget: text
-                    i18n: true
+              - label: Tytuł Karty
+                name: title
+                widget: string
+                i18n: true
+              - label: Opis Karty
+                name: description
+                widget: text
+                i18n: true
           - label: O Nas
             name: about
             widget: object
