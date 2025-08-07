@@ -12,6 +12,6 @@ de:
 pl:
   home: Strona Główna
   projects: Projekty
-  contact: Kontkat
+  contact: Kontakt
   rules: "Polityka Prywatności "
 ---

@@ -15,22 +15,29 @@ const { title, text } = Astro.props;
     flex-direction: column;
     background-color: var(--color-accent);
     border-radius: 0.5rem;
-    padding: 2rem;
-    gap: 2vh;
+    padding: clamp(1rem, 4vw, 1.5rem);
     text-align: center;
     align-items: center;
-    justify-content: center;
-
+    justify-content: space-between;
+    flex: 1;
     max-width: 30rem;
-
-    @media (min-width: 1280px) {
-      justify-content: start;
-    }
   }
 
+  .text_wrapper {
+    gap: 1rem;
+  }
   .svg {
     padding: 0;
     width: 2rem;
+    margin-bottom: auto;
+  }
+
+  h2 {
+    font-size: var(--text-md);
+  }
+
+  p {
+    font-size: var(--text-sm);
   }
 </style>
 
@@ -38,6 +45,8 @@ const { title, text } = Astro.props;
   <div class="svg">
     <slot />
   </div>
-  <h3>{title}</h3>
-  <p>{text}</p>
+  <div class="text_wrapper">
+    <h2>{title}</h2>
+    <p>{text}</p>
+  </div>
 </div>

@@ -1,0 +1,73 @@
+---
+import Button from "./buttons/Button_simple.astro";
+
+const { title_1, title_2, description_1, description_2, link_text, link } =
+  Astro.props;
+---
+
+<style>
+  .bg {
+    background-size: cover; /* Opcjonalne, ale często przydatne */
+    background-repeat: no-repeat; /* Opcjonalne */
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: start;
+  }
+
+  .bg-image {
+    background-image:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, #060c0f 100%),
+      url(src/assets/img/background_mobile.png);
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .bg-image {
+      background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, #060c0f 100%),
+        url(src/assets/img/background_tablet.png);
+    }
+  }
+
+  @media only screen and (min-width: 1280px) {
+    .bg-image {
+      background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, #060c0f 100%),
+        url(src/assets/img/background.png);
+    }
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    gap: clamp(24px, 3vw + 1.5rem, 84px);
+
+    @media (min-width: 1024px) {
+      width: 60%;
+    }
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+  }
+
+  p {
+    font-size: var(--base);
+  }
+</style>
+
+<div class="bg-image bg margin">
+  <div class="text">
+    <h1>
+      {title_1}<br /><strong>{title_2}</strong>
+    </h1>
+    <p>
+      {description_1}
+      <span style="color: var(--color-accent);">{description_2}</span>
+    </p>
+    <Button link={link} text={link_text} />
+  </div>
+</div>

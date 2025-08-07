@@ -8,15 +8,14 @@ const { title } = Astro.props;
 
 <style>
   h2 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: var(--text-xl);
   }
 
   hr {
-    color: var(--color-accent);
     width: 40%;
     margin-block: 2.5rem;
-    border-width: 0.2rem;
+    border: 0.2rem solid var(--color-accent);
+    border-radius: 5rem;
   }
 </style>
 

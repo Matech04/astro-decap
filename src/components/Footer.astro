@@ -1,14 +1,40 @@
 ---
-const { lang } = Astro.params;
+import Logo from "../assets/img/Logo.svg";
 ---
 
-<footer class="section flex flex-col gap-4 pb-20 justify-center items-center">
-  <div class="w-20"></div>
-  <p class="text-xl font-bold mt-10 mb-5">{"placeholder"}:</p>
+<style>
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding-block: 5rem;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sign {
+    font-size: 0.5rem;
+    margin-top: 1rem;
+  }
+</style>
+
+<footer class="flex flex-col gap-4 pb-20 justify-center items-center">
+  <div class="logo">
+    <Logo width={64} height={64} />
+  </div>
   <p>ul. Gorzowska 19/3, 66-435 Krzeszyce</p>
   <p>office@custom-steel.eu</p>
   <p>+48 535 044 105</p>
   <p>+48 535 811 395</p>
   <p>+48 733 615 744</p>
+
   <p class="sign">Made by: mateusz.chodacki@gmail.com</p>
 </footer>

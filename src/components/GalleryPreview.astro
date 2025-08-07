@@ -1,11 +1,13 @@
 ---
 import { Image } from "astro:assets";
+import import_image from "src/lib/import_image";
 
-const { Images } = Astro.props;
+const { images } = Astro.props;
 
-const images: Array<{ default: { src: string } }> = Object.values(Images);
-
-//Dodaj alty do zdjęć
+const Image1 = import_image(images[0].url);
+const Image2 = import_image(images[1].url);
+const Image3 = import_image(images[2].url);
+const Image4 = import_image(images[3].url);
 ---
 
 <style>
@@ -62,8 +64,8 @@ const images: Array<{ default: { src: string } }> = Object.values(Images);
 </style>
 
 <div>
-  <Image class="first" src={images[0].default} alt="" />
-  <Image class="sec" src={images[1].default} alt="" />
-  <Image class="third" src={images[2].default} alt="" />
-  <Image class="forth" src={images[3].default} alt="" />
+  <Image class="first" src={Image1} alt={images[0].alt} />
+  <Image class="sec" src={Image2} alt={images[1].alt} />
+  <Image class="third" src={Image3} alt={images[2].alt} />
+  <Image class="forth" src={Image4} alt={images[3].alt} />
 </div>

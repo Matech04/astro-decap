@@ -1,61 +1,49 @@
 ---
-import "../components/Navbar.astro";
 import Navbar from "../components/Navbar.astro";
-import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
+import import_image from "src/lib/import_image";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import "../assets/styles/global.css";
 
 import * as Nav from "../content/translations/navigation.md";
-import * as Con from "../content/translations/contact.md";
-const { title } = Astro.props;
+import * as Settings from "../content/settings.md";
+const { lang } = Astro.props;
 
-const t = Nav.frontmatter.en;
-const c = Con.frontmatter.en;
+const t = Nav.frontmatter[lang];
+const s = Settings.frontmatter;
+
+const Logo = import_image(s.logo);
 
 const links = {
   home: {
-    href: "",
-    text: t.main,
+    href: getRelativeLocaleUrl(lang, ""),
+    text: t.home,
   },
   projects: {
-    href: "projects",
+    href: getRelativeLocaleUrl(lang, s.links[lang].projects),
     text: t.projects,
   },
   contact: {
-    href: "#contact",
+    href: getRelativeLocaleUrl(lang, s.links[lang].contact),
     text: t.contact,
   },
 };
 ---
 
-<style>
-  body: {
-    width: 100%;
-  }
-</style>
-
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
+    <title>{s.links.en.projects}</title>
   </head>
 
   <body id="body">
-    <Navbar links={links} />
+    <Navbar links={links} Logo={Logo} lang={lang} langs={s.langs} />
     <slot />
-    <Contact
-      title1={c.title1}
-      title2={c.title2}
-      description={c.description}
-      name={c.form.name}
-      email={c.form.email}
-      phone={c.form.phone}
-      button={c.form.button}
-    />
+
     <Footer />
   </body>
 </html>

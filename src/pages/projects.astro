@@ -1,0 +1,53 @@
+---
+import Title from "@components/Title.astro";
+import MainLayout from "@layouts/main_layout.astro";
+
+import * as Home from "../content/translations/home.md";
+import * as Gallery from "../content/gallery.md";
+import { Image } from "astro:assets";
+import import_image from "src/lib/import_image";
+
+const lang = "en";
+
+const images = Gallery.frontmatter.en.images;
+
+const t = Home.frontmatter.en.projects;
+---
+
+<style>
+  .margin {
+    padding-top: 12rem;
+  }
+
+  .image_gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .image_gallery img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  @media (min-width: 768px) {
+    .image_gallery {
+      flex-direction: row;
+    }
+  }
+</style>
+
+<MainLayout lang={lang}>
+  <div class="margin">
+    <Title title={t.title} />
+    <div class="image_gallery">
+      {
+        images.map((image) => (
+          <Image src={import_image(image.path)} alt={image.alt} />
+        ))
+      }
+    </div>
+  </div>
+</MainLayout>

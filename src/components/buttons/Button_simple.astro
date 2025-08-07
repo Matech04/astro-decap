@@ -1,0 +1,24 @@
+---
+const { link, text, type = "" } = Astro.props;
+---
+
+<style>
+  a {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: var(--md);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-block: 0.75rem;
+    padding-inline: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    font-size: var(--text-base);
+    margin-inline-end: auto;
+  }
+</style>
+
+<a href={link}>{text}</a>

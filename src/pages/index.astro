@@ -1,32 +1,44 @@
 ---
-import Image from "astro/components/Image.astro";
-
-//Importing translations
+//Importing markdown
 import * as Home from "../content/translations/home.md";
+import * as Gallery from "../content/gallery_preview.md";
+import * as Con from "../content/translations/contact.md";
+import * as Settings from "../content/settings.md";
 
 //Components
 import Main_layout from "../layouts/main_layout.astro";
-import Button from "../components/Button.astro";
+import Button from "../components/buttons/Button_icon.astro";
 import Section from "../components/Section.astro";
 import GalleryPreview from "../components/GalleryPreview.astro";
 import Title from "../components/Title.astro";
 import Description from "../components/Description.astro";
 import Cards from "../components/cards/Cards.astro";
+import Hero from "../components/Hero.astro";
+import Contact from "../components/Contact.astro";
+
+//utils
+import import_image from "src/lib/import_image";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const lang = "en";
 
 // Import images for preview gallery
-const images = import.meta.glob(
-  "/src/images/gallery_preview/*.{svg,png,jpg,jpeg}",
-  {
-    eager: true,
-  }
-);
+const images_arr = Gallery.frontmatter[lang].images;
+const images = [];
 
-const t = Home.frontmatter.en;
+images_arr.forEach((image) => {
+  images.push({ url: image.path, alt: image.alt });
+});
+
+const t = Home.frontmatter[lang];
+const c = Con.frontmatter[lang];
+const s = Settings.frontmatter;
 
 // SVG imports
-const Icon_1 = (await import(`/${t.cards[0].icon}`)).default;
-const Icon_2 = (await import(`/${t.cards[1].icon}`)).default;
-const Icon_3 = (await import(`/${t.cards[2].icon}`)).default;
+
+const Icon_1 = import_image(t.cards[0].icon);
+const Icon_2 = import_image(t.cards[1].icon);
+const Icon_3 = import_image(t.cards[2].icon);
 
 const cards = {
   card1: {
@@ -45,39 +57,47 @@ const cards = {
     svg: Icon_3,
   },
 };
+
+const home = getRelativeLocaleUrl(lang, "/");
+const projects = getRelativeLocaleUrl(lang, s.links[lang].projects);
+const contact = getRelativeLocaleUrl(lang, s.links[lang].contact);
 ---
 
-<Main_layout title={`custom-steel.eu`}>
-  <div class="bg-image h-[100vh] w-full lg:h-auto flex flex-col justify-center">
-    <div
-      class="pl-[10vw] pr-[15vw] sm:pr-[35vw] h-[50%] flex flex-col gap-6 sm:gap-12 mb-32 lg:mt-20 xl:mt-[20vh]"
-    >
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl lg:mt-5">
-        {t.title1}<br /><strong>{t.title2}</strong>
-      </h1>
-      <h2 class="text-base sm:text-3xl lg:text-3xl">
-        {t.description1}
-        <span class="text-accent">{t.description2}</span>
-      </h2>
-      <a
-        class="text-xl w-42 sm:text-3xl lg:text-4xl sm:w-64 lg:w-[30vw] bg-accent text-center py-2 lg:py-4 rounded-lg"
-        href=`#contact`>{t.button}</a
-      >
-    </div>
+<Main_layout lang={lang}>
+  <Hero
+    title_1={t.title1}
+    title_2={t.title2}
+    description_1={t.description1}
+    description_2={t.description2}
+    link_text={t.button}
+    link={contact}
+  />
+
+  <div class="margin">
+    <Section>
+      <Cards cards={cards} />
+    </Section>
+
+    <Section>
+      <Description title={t.about.title} text={t.about.description} />
+    </Section>
+
+    <Section>
+      <Title title={t.projects.title} />
+      <GalleryPreview images={images} />
+      <Button link={projects} text={t.projects.button} />
+    </Section>
+
+    <Section>
+      <Contact
+        title_1={c.title1}
+        title_2={c.title2}
+        description={c.description}
+        name={c.form.name}
+        email={c.form.email}
+        phone={c.form.phone}
+        button={c.form.button}
+      />
+    </Section>
   </div>
-
-  <Section>
-    <Cards cards={cards} />
-  </Section>
-
-  <Section>
-    <Description title={t.about.title} text={t.about.description} />
-  </Section>
-
-  <Section>
-    <Title title={t.projects.title} />
-    <GalleryPreview />
-    <Button link={`/pl/projects`} text={t.projects.button} />
-    <Section />
-  </Section>
 </Main_layout>

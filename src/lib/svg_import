@@ -1,5 +1,0 @@
-export default function svg_import(svg_url_list) {
-  svg_url_list.forEach(svg_url => {
-    
-  });
-}

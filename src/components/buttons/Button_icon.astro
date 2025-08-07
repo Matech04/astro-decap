@@ -1,5 +1,5 @@
 ---
-const { link, text } = Astro.props;
+const { link, text, type = "" } = Astro.props;
 ---
 
 <style>
@@ -31,6 +31,7 @@ const { link, text } = Astro.props;
   .svg {
     padding: 0;
     width: 2rem;
+    color: var(--color-text);
   }
 </style>
 

@@ -16,6 +16,9 @@ const config: AstroUserConfig = defineConfig({
 	i18n: {
     locales: ["en", "de", "pl"],
     defaultLocale: "en",
+		routing: {
+        prefixDefaultLocale: false
+    }
   }
 });
 
